@@ -1,4 +1,4 @@
-class Main {
+public class bubblesort {
     public static void main(String[] args) {
         int[] numbers = {2,3,5,45,76,45,4,56,6,45,3,5};
         for(int j = 0; j < numbers.length; j++){

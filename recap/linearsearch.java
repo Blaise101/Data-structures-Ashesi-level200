@@ -1,4 +1,4 @@
-class Main {
+public class linearsearch {
     public static void main(String[] args) {
         int[] numbers = {2,3,5,45,76,45,4,56,6,45,3,5};
         int element = numbers[0];
