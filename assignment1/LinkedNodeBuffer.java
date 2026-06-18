@@ -68,13 +68,13 @@ public class LinkedNodeBuffer<T extends Comparable<T>> {
       }
       current = current.getNext(); // Move to next node
     }
-    System.out.print("]");
+    System.out.println("]");
   }
 
   // Problem 2
-  public int selectionSort(LinkedNodeBuffer<T> buffer){
+  public int selectionSort(){
 
-    int n =buffer.getSize();
+    int n =this.getSize();
     int comparisonCount = 0;
 
     // task 2
@@ -87,8 +87,8 @@ public class LinkedNodeBuffer<T extends Comparable<T>> {
       for(int j = i+1; j < n-1; j++){
         comparisonCount++;
 
-        T nodeA = buffer.get(j).getData();
-        T nodeB = buffer.get(mainIndex).getData();
+        T nodeA = this.get(j).getData();
+        T nodeB = this.get(mainIndex).getData();
 
         if(nodeA.compareTo(nodeB) < 0){
           mainIndex = j;
