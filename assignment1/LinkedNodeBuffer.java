@@ -82,9 +82,9 @@ public class LinkedNodeBuffer<T extends Comparable<T>> {
       return 0;
     }
 
-    for(int i = 0; i < n-2; i++){
+    for(int i = 0; i <= n-2; i++){
       int mainIndex = i;
-      for(int j = i+1; j < n-1; j++){
+      for(int j = i+1; j <= n-1; j++){
         comparisonCount++;
 
         T nodeA = this.get(j).getData();
@@ -93,6 +93,10 @@ public class LinkedNodeBuffer<T extends Comparable<T>> {
         if(nodeA.compareTo(nodeB) < 0){
           mainIndex = j;
         }
+      }
+
+      if(mainIndex != i){
+        this.swap(mainIndex, i);
       }
     }
 
