@@ -1,6 +1,6 @@
 package assignment1;
 
-public class LinkedNodeBuffer<T> {
+public class LinkedNodeBuffer<T extends Comparable<T>> {
   private Node<T> head;
   private int size;
   private int capacity;
@@ -71,4 +71,26 @@ public class LinkedNodeBuffer<T> {
     System.out.print("]");
   }
 
+  // Problem 2
+  public int selectionSort(LinkedNodeBuffer<T> buffer){
+
+    int n =buffer.getSize();
+    int comparisonCount = 0;
+
+    for(int i = 0; i < n-2; i++){
+      int mainIndex = i;
+      for(int j = i+1; j < n-1; j++){
+        comparisonCount++;
+
+        T nodeA = buffer.get(j).getData();
+        T nodeB = buffer.get(mainIndex).getData();
+
+        if(nodeA.compareTo(nodeB) < 0){
+          mainIndex = j;
+        }
+      }
+    }
+
+    return comparisonCount; // Return the total operations executed
+  }
 }
