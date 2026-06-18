@@ -12,8 +12,8 @@ public class Node<T> {
   public T getData(){return data;}
   public Node<T> getNext(){return next;}
 
-  public void steData(T data){this.data = data;}
-  public void steNext(Node<T> next){this.next = next;}
+  public void setData(T data){this.data = data;}
+  public void setNext(Node<T> next){this.next = next;}
 
   @Override
   public String toString(){
