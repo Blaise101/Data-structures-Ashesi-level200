@@ -77,6 +77,11 @@ public class LinkedNodeBuffer<T extends Comparable<T>> {
     int n =buffer.getSize();
     int comparisonCount = 0;
 
+    // task 2
+    if(n <= 1){
+      return 0;
+    }
+
     for(int i = 0; i < n-2; i++){
       int mainIndex = i;
       for(int j = i+1; j < n-1; j++){
