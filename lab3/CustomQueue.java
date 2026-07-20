@@ -1,26 +1,17 @@
 package lab3;
 
-
 public class CustomQueue<T> {
   private Node<T> head = null;
   private Node<T> tail = null;
   private int size = 0;
 
-  public boolean isEmpty() {
-    return size == 0;
-  }
-
-  public int size() {
-    return size;
-  }
-
   public void enqueue(T element){
     Node<T> newNode = new Node<>(element);
-    if(isEmpty()){
+    if (head == null) {
       head = tail = newNode;
     }else{
-      tail.prev = newNode;
-      newNode.next = tail;
+      tail.next = newNode;
+      newNode.prev = tail;
       tail = newNode;
     }
     size++;
@@ -31,17 +22,31 @@ public class CustomQueue<T> {
     T data = head.data;
     head = head.next;
     if(head == null){
-      tail = null;
+      tail = null; // The queue is now completely empty
     }else{
       head.prev = null;
     }
-    size--;
+
+    // Ensure size never drops below 0
+    if (size > 0) {
+      size--;
+    }
+    
     return data;
   }
 
   public T peek() {
-    if (isEmpty()) throw new RuntimeException("Queue is empty");
+    if (head == null) {
+      throw new java.util.NoSuchElementException("Queue is empty.");
+    }
     return head.data;
   }
 
+  public boolean isEmpty(){
+    return head == null; // Binding structural emptiness directly to the head pointer
+  }
+
+  public int size() {
+      return size;
+  }
 }
