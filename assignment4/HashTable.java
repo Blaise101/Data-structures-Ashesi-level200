@@ -33,7 +33,7 @@ public class HashTable<K, V> {
 
     private int getBucketIndex(Object key){
         if(key == null) return 0;
-        return key.hashCode() % capacity;
+        return Math.floorMod(key.hashCode(), capacity);
     }
 
     public void put(K key, V value){
