@@ -1,5 +1,3 @@
-package assignment4;
-
 public class StudentID{
     private final String id;
 
@@ -7,7 +5,7 @@ public class StudentID{
         this.id = id;
     }
 
-    public string getID(){
+    public String getID(){
         return id;
     }
 

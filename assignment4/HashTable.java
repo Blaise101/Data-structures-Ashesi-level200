@@ -1,5 +1,3 @@
-package assignment4;
-
 public class HashTable<K, V> {
     private static class Node<K, V> {
         public K key;
@@ -22,6 +20,7 @@ public class HashTable<K, V> {
     private int capacity;
     private int collisionCount;
     private int rehashCount;
+    private int shrinkCount;
 
     public HashTable(){
         this.capacity = initial_capacity;
@@ -93,7 +92,7 @@ public class HashTable<K, V> {
                 }
                 size--;
 
-                if(capacity > initial_capacity && (double) size / capacity shrink_factor_threshold){
+                if(capacity > initial_capacity && (double) size / capacity < shrink_factor_threshold){
                     rehash(Math.max(initial_capacity, capacity/2));
                     shrinkCount++;
                 }
@@ -138,7 +137,7 @@ public class HashTable<K, V> {
         return shrinkCount;
     }
 
-    public void dislay(){
+    public void display(){
         System.out.println("HashTable (Size: " + size + ", Capacity: " + capacity + "):");
         for(int i = 0; i < capacity; i++){
             System.out.print("  Bucket " + i + ": ");
